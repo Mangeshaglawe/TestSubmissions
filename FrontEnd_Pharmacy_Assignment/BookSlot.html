@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a slot</title>
+    <!-- <link rel="stylesheet" href="PharmacyCSS.css"> -->
+    <style>
+        input {
+            border-top-style: hidden;
+            border-right-style: hidden;
+            border-left-style: hidden;
+            border-bottom-style: dotted;
+            width: 200px;
+            
+            /* background-color: #eee; */
+        }
+        .btn{
+            border-bottom-style: none;   
+            /* margin-top: 2rem; */
+            margin-bottom: 2rem;;
+            background-color: #55efc4; 
+            color: #2d3436;  
+            cursor: pointer;
+            
+        }
+        .datetime{
+            border-bottom-style: none; 
+        }
+        .btn:hover{
+            background-color: #00b894 ;
+            color: #2d3436;
+        }
+        .image img{
+        border-radius: 10px;
+        width: 400px;
+        height: 750px;
+        padding-left: 450px;
+        margin-top: -750px;
+        right: 400px;
+        float: left;
+    }
+    .chkbox{
+        margin-left: -90px;
+    }
+    .radiobtn{
+        margin-left: -90px;
+    }
+    label .radiobtn{
+        margin-left: -70px;
+    }
+    label .chkbox{
+        margin-left: -70px;
+    }
+    
+    </style>
+</head>
+<body>
+    <section>
+        <a href="Pharmacy.html">Home </a>
+        <header>
+            <h1>1.Your Contact Details</h1>
+            <!-- <p>Read below instructions before proceeding:<br> Make sure you fill all the fileds where * is provided</p> -->
+        </header>
+        <form action="">
+            <article>
+                <input class="txtbox" type="text" title="name" required spellcheck="true" placeholder="Full Name">
+                <input class="txtbox" type="text" title="name" required spellcheck="true" placeholder="Patient ID">
+            </article> <br>
+            <article>
+                <!-- <h3>Contact Number</h3> -->
+                <input class="txtbox" type="number" title="name" required spellcheck="true" placeholder="Contact Number" >
+                <input class="txtbox" type="email" title="name" required spellcheck="true" placeholder="Email ID" >
+            </article><br>
+            
+            </form>
+            
+        </section>
+
+        <header>
+            <h1>2.Address</h1>
+            <!-- <p>Read below instructions before proceeding:<br> Make sure you fill all the fileds where * is provided</p> -->
+        </header>
+        <form action="">
+            <article class="txtbox">
+                <input class="txtbox" type="text" title="name" required spellcheck="true" placeholder="H-No.">
+                <input class="txtbox" type="text" title="name" required spellcheck="true" placeholder="Street">
+            </article> <br>
+            <article class="txtbox">
+                <!-- <h3>Contact Number</h3> -->
+                <input class="txtbox" type="text" title="name" required spellcheck="true" placeholder="Area" >
+               
+            </article><br>
+
+            District<select name="district" id="district">
+                <option value="" selected="selected">Select District</option>
+              </select ><br><br>
+              
+              <h3>Choose the test type</h3>
+              <p>Check atleast one box without fail</p>
+              <div class="chkbox">
+                
+                <input  type="checkbox" id = "cbc"  name="cbc"   >
+                <label for="cbc" class="chkbox" >CBC</label>
+               </div><br>
+               <div class="chkbox">
+                <input  type="checkbox" id = "cu"  name="cu"   >
+                <label for="cu" class="chkbox" >Complete Urine</label>
+               </div><br>
+               <div class="chkbox">
+                <input  type="checkbox" id = "lp"  name="lp"  >
+                <label for="lp" class="chkbox"  >Lipid Profile</label>
+               </div><br>
+               <div class="chkbox">
+                <input  type="checkbox" id = "tsh"  name="tsh"  >
+                <label for="tsh" class="chkbox" >Thyroid Stimulating Harmone (TSH)</label>
+               </div><br>
+               <div class="chkbox">
+                <input  type="checkbox" id = "gt"  name="gt"  >
+                <label for="gt" class="chkbox" >Glucose Test</label>
+               </div><br>
+
+               <div class="radiobtn"></div>
+               <article>
+                    <h3>Do you want hard copy of the report?</h3>
+                    <input class="radiobtn" type="radio" id="c5" name="option" value="True" required>
+                    <label class="radiobtn" for="c5">Yes</label>
+                    <br>
+                    <input class="radiobtn" type="radio" id="c6" name="option" value="False">
+                    <label class="radiobtn" for="c6">No</label>
+                    <br>
+                    <h3>Select your comfortable date & time</h3>
+                    <input type="datetime-local" id="datetime" class="datetime" value="" required>
+                </article>
+                </div>
+              <div >
+                <br><input  class="btn" id="submit" type="submit" value="Submit"  >
+                <input class="btn" id="reset" type="submit" value="Reset"> 
+            </div>  
+            </form>
+            
+        </section>
+        
+       
+        <section>
+            <div class="image" >
+                <a href="#" >
+                    <img src="Images/Lab-Test/lab-test.jpg" alt="lab-test">
+                </a>
+            </div>
+        </section>
+       
+    <script>
+            //Districts in Maharashtra
+            const DistrictList = [ 
+                        'Ahmednagar', 'Akola',	'Amravati','Beed','Bhandara','Buldhana','Chandrapur',
+                        'Dharashiv','Dhule','Gadchiroli','Gondia','Hingoli','Jalgaon','Jalna','Kolhapur',
+                        'Latur','Mumbai City','Mumbai Suburban','Nanded','Nandurbar','Nagpur','Nashik',	
+                        'Palghar','Parbhani','Pune','Raigad','Ratnagiri','Sambhajinagar','Sangli','Satara',	
+                        'Sindhudurgh','Solapur','Thane','Wardha','Washim','Yavatmal'
+            // "District": {
+                // "HTML": ["Links", "Images", "Tables", "Lists"],
+        ]
+        window.onload = function() {
+            var districtSel = document.getElementById("district");
+            DistrictList.forEach((item, index, array) => {
+            // console.log(Option(item));
+            districtSel.options[districtSel.options.length] = new Option(item, index,true);
+            // for (var x in DistrictList) {
+            //     districtSel.options[districtSel.options.length] = new Option(x, x);
+            
+                
+            });
+            districtSel.options[districtSel.options.length] = (new Option('Ahmednagar',0,true,1));
+        }
+
+        let buttonSubmit = document.getElementById("submit");
+        let buttonReset = document.getElementById("reset");
+        
+        
+        buttonSubmit.addEventListener("click", clickEventForSubmitButtonHandler);
+
+        buttonReset.addEventListener("click", clickEventForResetButtonHandler);
+
+        function clickEventForSubmitButtonHandler(event){
+            let checkbox_cbc = document.getElementById("cbc");
+            let checkbox_cu = document.getElementById("cu");
+            let checkbox_lp = document.getElementById("lp");
+            let checkbox_tsh = document.getElementById("tsh");
+            let checkbox_gt = document.getElementById("gt");
+            if( ! ((checkbox_cbc.checked == true) || (checkbox_cu.checked == true) ||
+                 (checkbox_lp.checked == true) || (checkbox_tsh.checked == true) ||
+                 (checkbox_gt.checked == true)
+               ))
+             {
+                alert("Please Select atleast one checkbox..!");
+               event.preventdefault();           
+            }
+            
+        }
+
+        function clickEventForResetButtonHandler(){
+            document.getElementById("myForm").reset();
+        }
+              
+    </script>
+</body>
+</html>
