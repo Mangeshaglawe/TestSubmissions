@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head>
+    <title>Sign Up</title>
+    <style>
+    h2{
+        text-align: center;
+    }
+    .signin{
+        color: navy;
+        width: 500px;
+        padding: 10px;
+        position: absolute;
+        font-size: 20px;
+        top: 5%;
+        left: 30%;
+        line-height: 50px;
+        border-radius: 10px;
+        background: transparent;
+        text-align: left;
+        vertical-align: middle;
+    }
+    input{
+        height: 30px;
+        width: 45%;
+        padding-left: 10px;
+        border-radius: 8px;
+    }
+    button{
+        width:120px;
+        height: 50px;
+        padding: 5px;
+        float: right;
+        vertical-align: middle;
+        font-size: 25px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        border-radius: 10px;
+        background-color: rgb(67, 185, 67);
+        color: white;
+    }
+    #myVideo{
+        position: fixed;
+        width: auto;
+        height: auto;
+    }
+    #lname{
+        margin-left: 30%;
+    }
+    </style>
+</head>
+<body>
+    <!-- <video autoplay muted loop id="myVideo">
+        <source src="Background.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video> -->
+
+    <div class="signin">
+        <h2>Sign Up</h2>
+        <form action="Log In.html">
+
+            <label for="F_name">First Name:</label>
+            <label for="L_name" id="lname">Last Name: </label><br>
+            <input type="text" name="F_name" placeholder="Enter First Name" required>            
+            <input type="text" name="L_name" placeholder="Enter Last Name" required><br>
+
+            <label for="u_email">Email Id: </label><br>
+            <input type="email" name="u_email" placeholder="Enter Email Id" required><br>
+
+            <label for="u_name">Username: </label><br>
+            <input type="text" name="u_name" id="u_name" placeholder="Enter Username of your choice" required><br>
+
+            <label for="u_pswd">Enter Password: </label><br>
+            <input type="password" name="u_pswd" id="u_pswd" placeholder="Enter Password" minlength="8" required><br>
+            
+            <label for="u_repswd">Re-enter Password: </label><br>
+            <input type="password" name="repswd" id="u_pswd1" placeholder="Re-enter Password"  minlength="8" required><br>
+            
+            <button type="button" onclick="saveData()" id="save_btn" class="btn">Submit</button>
+        </form>
+    </div>
+    <script>
+        let name=localStorage.getItem('u_name')?localStorage.getItem('u_name'):''
+        console.log(name);
+        if(name!='')
+        {
+          alert('Please visit sign-up page...! ');
+          window.location.href="signUp.html";
+        }   
+    function saveData()
+    {
+        let name,psw;
+        name=document.getElementById("u_name").value;
+
+        psw=document.getElementById("u_pswd").value;
+
+        let user_records=new Array();
+        user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+
+        // if(user_records.some((v)=>{return v.u_name==name && v.u_pswd==psw}))
+        // {
+        //     alert("Login Passed");
+        //     window.location.href = "resumeViewer.html"
+        // }
+        // else
+        // {
+            //<a href="signUp.html">No Account? | Sign Up</p>
+            user_records.push({
+            "u_name": name,
+            //   "email":email,
+            "u_pswd":psw
+            
+        })
+
+            localStorage.setItem("users",JSON.stringify(user_records));
+            alert("User Added Successfully....!");
+            window.location.href = "resumeViewer.html"
+        }
+
+    //}
+    </script>
+</body>
+</html>

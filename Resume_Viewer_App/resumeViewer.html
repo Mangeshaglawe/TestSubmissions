@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resume Viewer</title>
+    <style>
+             body{
+    /* border: 2px solid goldenrod; */
+    /*("../../../../MobileData/DCIM/Camera/IMG_20220213_102056.jpg") ;*/
+        background-color: honeydew;
+        height: 475px; /* You must set a specified height */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover; 
+    
+    }
+    header{
+        font-weight: bolder;
+        color: rgb(255, 255, 255);
+        font-size: xx-large;
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.685);
+    }
+    </style>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <header>Resume Viewer Application</header>
+    <!-- <h1>Resume Search Page</h1> -->
+    <div id="content"  padding="25px">
+      <div class="controls" >
+        <button id="prev" class="prev">Prev</button>
+        <input type="text" id="search" placeholder="search resume"></input>
+        <button id="next" class="next" >Next</button>
+      </div>
+
+      <div id="error">
+        <img width="50" src='./images/sad.png'/>
+            Apologies no resumes found...!
+      </div>
+
+      <div id="disp">
+        <div class="header">
+          <div class="text">
+            <h2 id="name">Name</h2>
+            Applied for: <span id="position">Position</span>
+          </div>
+          <div class="image"><img width="80" src="./images/profile-icon.svg"/></div>
+        </div>
+        <div class="content-area">
+          <div class="sidebar">
+            <h4>Personal Information</h4>
+            <div id="personalinfo"></div>
+            <h4>Technical Skills</h4>
+            <div id="technicalskill"></div>
+            <h4>Hobbies</h4>
+            <div id="hobbies"></div>
+          </div>
+          <div id="data">Data</div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="JS/resumeViewer.js "></script>
+  </body>
+</html>

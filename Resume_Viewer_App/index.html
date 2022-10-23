@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<head>
+    <title>Log In</title>
+    <link rel="stylesheet" href="Main.css">
+    <style>
+    h2{
+        text-align: center;
+    }
+    .login{
+        color: navy;
+        width: 300px;
+        padding: 10px;
+        position: absolute;
+        font-size: 20px;
+        top: 10%;
+        right: 50px; 
+        line-height: 50px;
+        border-radius: 10px;
+        background: transparent;
+        text-align: left;
+        vertical-align: middle;
+    }
+    input{
+        height: 30px;
+        width: 98%;
+        padding-left: 10px;
+        border-radius: 8px;
+    }
+    button{
+        margin-top: 10px;
+        width:120px;
+        height: 50px;
+        padding: 5px;
+        float: right;
+        vertical-align: middle;
+        font-size: 25px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        border-radius: 10px;
+        background-color: rgb(67, 185, 67);
+        color: white;
+    }
+    #myVideo{
+        position: fixed;
+        width: auto;
+        height: auto;
+    }
+    a{
+        color: navy;
+        font-size: 14px;
+    }
+    body{
+    /* border: 2px solid goldenrod; */
+    /*("../../../../MobileData/DCIM/Camera/IMG_20220213_102056.jpg") ;*/
+        background-color: honeydew;
+        height: 475px; /* You must set a specified height */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover; 
+    
+    }
+    header{
+        font-weight: bolder;
+        color: rgb(255, 255, 255);
+        font-size: xx-large;
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.685);
+    }
+    
+    </style>
+</head>
+<body>
+    <!-- <video autoplay muted loop id="myVideo">
+        <source src="Background.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video> -->
+    <header>Resume Viewer Application</header>
+    <div class="login">
+        <h2>Log In</h2>
+        <form action="index.html">
+            <label for="u_name">Username: </label><br>
+            <input type="text" name="u_name" id="u_name" placeholder="Enter username" required><br>
+
+            <label for="u_pswd">Password: </label><br>
+            <input type="password" name="u_pswd" id="u_pswd" placeholder="Enter password" minlength="8" required>
+
+            <!-- <a href="signUp.html">No Account? | Sign Up</p> -->
+
+            <button type="button" onclick="saveData()" id="save_btn" class="btn" >Log In</button>
+        </form>
+    </div>
+    <!-- <script src="main.js"></script> -->
+    <script>
+      let name=localStorage.getItem('u_name')?localStorage.getItem('u_name'):''
+        console.log(name);
+        if(name!='')
+        {
+          alert('Please visit sign-up page...! ');
+          window.location.href="signUp.html";
+        }   
+    function saveData()
+    {
+        let name,psw;
+        name=document.getElementById("u_name").value;
+
+        psw=document.getElementById("u_pswd").value;
+
+        let user_records=new Array();
+        user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+
+        if(user_records.some((v)=>{return v.u_name==name && v.u_pswd==psw}))
+        {
+            alert("Login Passed");
+            window.location.href = "resumeViewer.html"
+        }
+        else
+        {
+            alert("Login Failed...Please Sign Up...! ");
+            window.location.href = "signUp.html"
+                    // localStorage.setItem("users",JSON.stringify(user_records));
+            
+        }
+
+    }
+
+    </script>
+
+</body>
+</html>
