@@ -8,7 +8,7 @@ const List = () => {
     <div className='list'>
       <span className="listTitle">Continue to Watch ...</span>
       <div className="wrapper">
-        <ArrowBackIosOutlined/>
+        <ArrowBackIosOutlined className='sliderArrowLeft'/>
            <div className="container">
             <ListItem/>
             <ListItem/>
@@ -22,7 +22,7 @@ const List = () => {
             <ListItem/>
             <ListItem/>
            </div> 
-        <ArrowForwardIosOutlined/>
+        <ArrowForwardIosOutlined className='sliderArrowRight'/>
       </div>
     </div>
   )
