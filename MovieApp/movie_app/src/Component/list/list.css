@@ -18,6 +18,7 @@
 .wrapper .container{
 margin-left: 50px;
 display: flex;
+width: max-content;
 
 
 }
